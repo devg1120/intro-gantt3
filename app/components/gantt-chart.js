@@ -3,7 +3,7 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { action, set } from '@ember/object';
 
 import EmberObject from '@ember/object';
 import MinMaxChildDatesMixin from '../mixins/min-max-child-dates-mixin';
@@ -50,6 +50,7 @@ export default class GanttChartComponent extends Component {
     @tracked dateStart;
     @tracked dateEnd;
 
+    @tracked viewStartDate ;
    @tracked mouse_moving = false;
 
    clientX = 0;
@@ -266,18 +267,18 @@ export default class GanttChartComponent extends Component {
     @action onMouseDown(e) {
         if (e.target.className.indexOf('day') !== -1) {
            e.preventDefault();
-	   e.stopPropagation();
+	   //e.stopPropagation();
            console.log("mouse down")
 	   this.mouse_moving = true;
 	}
     }
     @action onMouseUp(e) {
-        if (e.target.className.indexOf('day') !== -1) {
+        //if (e.target.className.indexOf('day') !== -1) {
            e.preventDefault();
-	   e.stopPropagation();
+	   //e.stopPropagation();
            console.log("mouse up")
 	   this.mouse_moving = false;
-	}
+	//}
     }
     @action onMouseMove(e) {
         if (e.target.className.indexOf('day') !== -1) {
@@ -285,12 +286,14 @@ export default class GanttChartComponent extends Component {
                    //console.log(typeof(e.target.className))
                    console.log(e.target.className)
                    e.preventDefault();
-	           e.stopPropagation();
+	           //e.stopPropagation();
 
 	   	if (e.clientX < this.clientX) {
                          console.log("mouse move left")
+                         set(this,'viewStartDate', dateUtil.datePlusDays(this.viewStartDate, 1)) ;
                    } else {
                          console.log("mouse move right")
+                         set(this,'viewStartDate', dateUtil.datePlusDays(this.viewStartDate, -1)) ;
 	   	}
                    this.clientX = e.clientX
 	   }

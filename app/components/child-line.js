@@ -59,7 +59,7 @@ export default class ChildLineComponent extends Component {
   // let style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px;`;
     this.child_stack = args.child_stack + 1;
     //this.titleStyle = "padding-left: 3px;";
-    this.titleStyle = htmlSafe("padding-left: ${(get(this,'child_stack')-1)*30}px;");
+    this.titleStyle = htmlSafe(`padding-left: ${(get(this,'child_stack')-1)*30}px;`);
     //console.log(this.chartElement) ;
     if (get(this, 'isEditable') && !this._handleMoveStart) {
       this._handleMoveStart = bind(this, this.activateMove);
