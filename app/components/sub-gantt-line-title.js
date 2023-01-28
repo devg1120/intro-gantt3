@@ -9,7 +9,7 @@ export default class SubGanttLineTitleComponent extends Component {
   titleStyle = null;
   constructor(owner, args) {
     super(owner, args);
-    this.child_stack = args.child_stack + 1;
+    this.child_stack = args.child_stack ;
     this.titleStyle = htmlSafe(`padding-left: ${(get(this,'child_stack')-1)*30}px;`);
 
   }
