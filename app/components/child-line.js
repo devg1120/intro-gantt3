@@ -40,6 +40,7 @@ export default class ChildLineComponent extends Component {
 
   onDateChange= null;
 
+  titleStyle = null;
 
   classNames= ['gantt-line-wrap'];
   classNameBindings= ['isResizing','isMoving'];
@@ -55,6 +56,10 @@ export default class ChildLineComponent extends Component {
     this.chartElement   = args.chartElement;
     this.onDataUpdate   = args.onDataUpdate;
 
+  // let style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px;`;
+    this.child_stack = args.child_stack + 1;
+    //this.titleStyle = "padding-left: 3px;";
+    this.titleStyle = `padding-left: ${(get(this,'child_stack')-1)*30}px;`;
     //console.log(this.chartElement) ;
     if (get(this, 'isEditable') && !this._handleMoveStart) {
       this._handleMoveStart = bind(this, this.activateMove);

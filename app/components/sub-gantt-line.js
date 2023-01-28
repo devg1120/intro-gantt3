@@ -63,6 +63,7 @@ export default class SubGanttLineComponent extends Component {
     this.chart = args.chart;
     this.parent = args.parent;
     this.job = args.job;
+    this.child_stack = args.child_stack + 1;
     //this.onDataUpdate = args.onDataUpdate;
 
     //this.collapsed_tmp = false;
@@ -347,9 +348,9 @@ export default class SubGanttLineComponent extends Component {
     //this.job.dateEnd = this.project.maxEndDate;
     //set(job, 'dateStart' , this.project.minStartDate);
     //set(job, 'dateEnd' , this.project.maxEndDate);
-      set(this.job, 'dateStart', this.dateStart);
-      set(this.job, 'dateEnd', this.dateEnd);
-    //this.onDataUpdate(this.job, this.dateStart, this.dateEnd);  
+    set(this.job, 'dateStart', this.dateStart);
+    set(this.job, 'dateEnd', this.dateEnd);
+    this.onDataUpdate(this.job, this.dateStart, this.dateEnd);  
 
 
   }

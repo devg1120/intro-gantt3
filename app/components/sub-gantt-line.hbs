@@ -2,7 +2,7 @@
 
 <div class="gantt-line">
 
-  <GanttLineTitle @project={{@project}}  @onClick={{this.collapse_toggle}} />
+  <SubGanttLineTitle @project={{@project}}  @onClick={{this.collapse_toggle}} />
   
   <div class="gantt-line-timeline">
 
@@ -44,6 +44,7 @@
                              @project={{@project}}
                              @chartElement={{@chartElement}}
                              @onDataUpdate={{this.onDataUpdate}}
+			     @child_stack={{this.child_stack}}
                              >
                  </ChildLine>
               {{/if}}

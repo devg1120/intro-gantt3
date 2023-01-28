@@ -37,6 +37,7 @@
 			     @parent={{this}}
 			     @job={{job}}
                              @onDataUpdate={{this.onDataUpdate}}
+			     @child_stack={{0}}
                              as |line|>
                  </SubGanttLine>
              
@@ -47,6 +48,7 @@
                              @project={{@project}}
                              @chartElement={{@chartElement}}
                              @onDataUpdate={{this.onDataUpdate}}
+			     @child_stack={{0}}
                              >
                  </ChildLine>
               {{/if}}
