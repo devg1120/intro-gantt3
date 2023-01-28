@@ -1,7 +1,19 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import {computed,get,set} from '@ember/object';
+
 
 export default class SubGanttLineTitleComponent extends Component {
+
+  titleStyle = null;
+  constructor(owner, args) {
+    super(owner, args);
+    this.child_stack = args.child_stack + 1;
+    this.titleStyle = htmlSafe(`padding-left: ${(get(this,'child_stack')-1)*30}px;`);
+
+  }
+
 
 /*
  @action
