@@ -350,7 +350,6 @@ export default class SubGanttLineComponent extends Component {
     //set(job, 'dateEnd' , this.project.maxEndDate);
     set(this.job, 'dateStart', this.dateStart);
     set(this.job, 'dateEnd', this.dateEnd);
-    this.onDataUpdate(this.job, this.dateStart, this.dateEnd);  
 
 
   }

@@ -210,6 +210,47 @@ export default class GanttChartService extends Service {
     projects.push(pj);
 
     // PT3
+    var childpj1 = new Project('sub project 2');
+    childpj1.jobs = [
+      {
+        isSubProj: false,
+        title: types[0].title,
+        color: types[0].color,
+        dateStart: dateUtil.datePlusDays(today, 3),
+        dateEnd: dateUtil.datePlusDays(today, 6),
+      },
+      {
+        isSubProj: false,
+        title: types[1].title,
+        color: types[1].color,
+        dateStart: dateUtil.datePlusDays(today, 7),
+        dateEnd: dateUtil.datePlusDays(today, 10),
+      },
+    ];
+    var childpj2 = new Project('sub project 1');
+    childpj2.jobs = [
+      {
+        isSubProj: false,
+        title: types[0].title,
+        color: types[0].color,
+        dateStart: dateUtil.datePlusDays(today, 3),
+        dateEnd: dateUtil.datePlusDays(today, 6),
+      },
+      {
+        isSubProj: true,
+        childpj: childpj1,
+        dateStart: dateUtil.datePlusDays(today, 3),
+        dateEnd: dateUtil.datePlusDays(today, 10),
+      },
+      {
+        isSubProj: false,
+        title: types[1].title,
+        color: types[1].color,
+        dateStart: dateUtil.datePlusDays(today, 7),
+        dateEnd: dateUtil.datePlusDays(today, 10),
+      },
+    ];
+
     var pj = new Project('System dev');
     let todayAfter2 = dateUtil.datePlusDays(today, 20);
     pj.jobs = [
@@ -234,6 +275,13 @@ export default class GanttChartService extends Service {
         dateStart: dateUtil.datePlusDays(todayAfter2, 17),
         dateEnd: dateUtil.datePlusDays(todayAfter2, 24),
       },
+      {
+        isSubProj: true,
+        childpj: childpj2,
+        dateStart: dateUtil.datePlusDays(today, 3),
+        dateEnd: dateUtil.datePlusDays(today, 10),
+      },
+      
     ];
     projects.push(pj);
     return projects;
