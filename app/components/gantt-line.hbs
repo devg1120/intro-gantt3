@@ -37,7 +37,7 @@
 			     @parent={{this}}
 			     @job={{job}}
                              @onDataUpdate={{this.onDataUpdate}}
-			     @child_stack={{0}}
+			     @child_stack={{0.3}}
                              as |line|>
                  </SubGanttLine>
              
@@ -48,15 +48,12 @@
                              @project={{@project}}
                              @chartElement={{@chartElement}}
                              @onDataUpdate={{this.onDataUpdate}}
-			     @child_stack={{0}}
+			     @child_stack={{0.3}}
                              >
                  </ChildLine>
               {{/if}}
-
            {{/each}}     
-
        {{/unless}}
-
    </BsCollapse>
-
+       <hr class="gantt-line-title" style="margin:8px;">
 </div>

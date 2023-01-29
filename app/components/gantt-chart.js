@@ -152,6 +152,15 @@ export default class GanttChartComponent extends Component {
   };
 */
 
+   @action
+    zoom(value) {
+      //let newDayWidth = Math.max(1, parseInt(get(this, 'dayWidth')) + parseInt(value) );
+      //console.log("zoom dayWidth",newDayWidth )
+      //set(this, 'dayWidth', newDayWidth);
+      let newDayWidth = Math.max(1, parseInt(this.dayWidth) + parseInt(value) );
+      this.dayWidth = newDayWidth;
+    }
+
   @action
   createElement(element_) {
     //console.log("createElement() ", element_);

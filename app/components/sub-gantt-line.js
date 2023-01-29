@@ -27,7 +27,9 @@ export default class SubGanttLineComponent extends Component {
 
   parentLine= null;
 
-  dayWidth= alias('chart.dayWidth');
+  //dayWidth= alias('chart.dayWidth');
+
+  @alias('chart.dayWidth') dayWidth;
 
   title= '';
 

@@ -20,7 +20,8 @@ export default class ChildLineComponent extends Component {
 
   parentLine= null;
 
-  dayWidth= alias('chart.dayWidth');
+  //dayWidth= alias('chart.dayWidth');
+  @alias('chart.dayWidth') dayWidth;
 
   title= '';
 

@@ -1,3 +1,8 @@
+
+<button type="button" {{on "click" (fn this.zoom 5)}}>Zoom in</button> | <button type="button" {{on "click" (fn this.zoom -5)}}>Zoom out</button>
+<br><br>
+
+
 <div class="gantt-chart ember-view" {{did-insert this.createElement}} >
 
    <div class="gantt-chart-inner"   
@@ -8,10 +13,10 @@
 
 <!--
    <div class="gantt-chart-inner"   >
-  -->
-     <GanttTimeline  @showToday={{this.showToday}} @chart={{this}} />
-   
-   <div class="gantt-titles-background"></div>
+ -->
+   <GanttTimeline  @showToday={{this.showToday}} @chart={{this}} />
+
+   <div class="gantt-titles-background" ></div>
      <div class="gantt-lines">
         {{#each this.projects as |project|}}
              <GanttLine  @dateStart={{project.minStartDate}}
@@ -23,8 +28,8 @@
            	         @chartElement={{this.element_}}
            	         as |line|>
              </GanttLine>
+	     <hr style="margin:8px;">
         {{/each}}
      </div>
-
    </div>
 </div>

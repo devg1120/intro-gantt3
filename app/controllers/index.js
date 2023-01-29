@@ -5,26 +5,27 @@ import { tracked } from '@glimmer/tracking';
 
 
 export default class IndexController extends Controller {
-  @tracked  dayWidth = 20;
+  @tracked  dayWidth ;
 
 //  constructor() {
 //    super(...arguments);
   constructor(owner, args) {
     super(owner, args);
 
-    this.dayWidth = 30;
+    this.dayWidth = 20;
     let today = new Date();
     today.setDate(today.getDate() - 10);
     this.viewStartDate = today;
     this.viewEndDate = null;
     this.headerTitle = 'Project/Job';
   }
+
     @action
     zoom(value) {
       let newDayWidth = Math.max(1, parseInt(get(this, 'dayWidth')) + parseInt(value) );
       console.log("zoom dayWidth",newDayWidth )
-      //set(this, 'dayWidth', newDayWidth);
-      this.dayWidth = newDayWidth;
+      set(this, 'dayWidth', newDayWidth);
+      //this.dayWidth = newDayWidth;
     }
 
     @action
