@@ -374,9 +374,12 @@ $gantt-weekend-background: #efefef;
   margin-bottom: 30px;
 }
 
-
+.gantt-line-childs {
+  transition: height $gantt-animation-duration ease-out;
+}
 // line-childs (can be defined recursively)
 .gantt-line-childs {
+
   .gantt-line,
   .gantt-line-title {
     //height: round(2*$gantt-line-height/3);
