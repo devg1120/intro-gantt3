@@ -4,6 +4,7 @@ const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
 
 export default class GanttChartRoute extends Route {
   async model() {
+     console.log("ganttchart model get");
     let response = await fetch('/api/rentals.json');
     let { data } = await response.json();
 

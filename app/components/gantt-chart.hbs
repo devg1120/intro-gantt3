@@ -1,16 +1,17 @@
-<div class="gantt-chart" {{did-insert this.createElement}} >
+<div class="gantt-chart ember-view" {{did-insert this.createElement}} >
 
-   <div class="gantt-chart-innner"   
+   <div class="gantt-chart-inner"   
                 {{on "mousedown" this.onMouseDown}}
                 {{on "mouseup"   this.onMouseUp  }}
                 {{on "mousemove"  this.onMouseMove }}
   >
 
 <!--
-   <div class="gantt-chart-innner"   >
+   <div class="gantt-chart-inner"   >
   -->
      <GanttTimeline  @showToday={{this.showToday}} @chart={{this}} />
    
+   <div class="gantt-titles-background"></div>
      <div class="gantt-lines">
         {{#each this.projects as |project|}}
              <GanttLine  @dateStart={{project.minStartDate}}

@@ -44,7 +44,7 @@ export default class GanttChartComponent extends Component {
    
   }
 */
-    dayWidth = 99;
+    @tracked dayWidth = 99;
    showToday = false;
     @tracked element_;
     @tracked dateStart;
