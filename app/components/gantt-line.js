@@ -47,6 +47,8 @@ export default class GanttLineComponent extends Component {
 
   onDateChange= null;
 
+  scrolling = true;
+
 
   classNames= ['gantt-line-wrap'];
   classNameBindings= ['isResizing','isMoving'];
@@ -60,6 +62,7 @@ export default class GanttLineComponent extends Component {
     this.project = args.project;
     this.jobs = args.project.jobs;
     this.chart = args.chart;
+    //this.scrolling = args.scrolling;
 
     //this.collapsed_tmp = false;
     this.collapsed = false;
@@ -171,7 +174,27 @@ export default class GanttLineComponent extends Component {
   @computed('barOffset','barWidth') 
   get barStyle() {
 
-    let style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px;`;
+    let style = '';
+
+    if (this.scrolling) {
+      console.log("scrolling");
+      style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px;`;
+    } else {
+      console.log("not scrolling");
+      style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px; transition: left 200ms ease-out;`;
+    }
+    if (get(this, 'color')) {
+      style+= `background-color:${get(this, 'color')}`;
+    }
+    return htmlSafe(style);
+  }
+
+  // styling for left/width
+  @computed('barOffset','barWidth') 
+  get transition_barStyle() {
+
+    //let style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px;`;
+    let style = `left:${get(this, 'barOffset')}px;width:${get(this, 'barWidth')}px; transition: left 200ms ease-out;`;
     if (get(this, 'color')) {
       style+= `background-color:${get(this, 'color')}`;
     }

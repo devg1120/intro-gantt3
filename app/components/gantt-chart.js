@@ -54,6 +54,7 @@ export default class GanttChartComponent extends Component {
    @tracked mouse_moving = false;
 
    clientX = 0;
+   //@tracked scrolling = false;
 //  constructor() {
 //    super(...arguments);
 
@@ -279,6 +280,7 @@ export default class GanttChartComponent extends Component {
 	   //e.stopPropagation();
            console.log("mouse down")
 	   this.mouse_moving = true;
+           //this.scrolling = true;
 	}
     }
     @action onMouseUp(e) {
@@ -287,6 +289,7 @@ export default class GanttChartComponent extends Component {
 	   //e.stopPropagation();
            console.log("mouse up")
 	   this.mouse_moving = false;
+           //this.scrolling = false;
 	//}
     }
     @action onMouseMove(e) {
